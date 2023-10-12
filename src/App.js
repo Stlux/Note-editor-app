@@ -27,12 +27,6 @@ export default function App() {
         localStorage.setItem("notes", JSON.stringify(notes))
     }, [notes])
     
-    
-    function setTitle(){
-        console.log("clicked");
-        
-    }
-    
     function createNewNote() {
         const newNote = {
             id: nanoid(),
@@ -72,6 +66,11 @@ export default function App() {
             return note.id === currentNoteId
         }) || notes[0]
     }
+
+    function deleteActionFunc(noteId){
+        console.log("Note deleted with id " + noteId);
+        setNotes(noteList => [...noteList.filter(obj => obj.id !== noteId)])
+    }
     
     return (
         <main>
@@ -88,6 +87,7 @@ export default function App() {
                     currentNote={findCurrentNote()}
                     setCurrentNoteId={setCurrentNoteId}
                     newNote={createNewNote}
+                    deleteAction={deleteActionFunc}
                 />
                 {
                     currentNoteId && 

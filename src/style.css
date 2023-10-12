@@ -139,6 +139,19 @@ button:focus {
     background-color: whitesmoke;
 }
 
-#note-elem:hover{
+#note-elem:hover .delete{
     background: #eee;
+    transition: 0.2s ease-in-out;
+
+    opacity: 1;
+}
+
+.delete{
+    display: block;
+    font-weight: bold;
+    margin-right: 30px;
+    font-size: 20px;
+    background: transparent !important;
+
+    opacity: 0;
 }
